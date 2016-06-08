@@ -3,11 +3,36 @@ package it.villarzilla.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="pazienti")
 public class Paziente {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@Column(nullable=false, length=50)
 	private String nome;
+	
+	@Column(nullable=false, length=50)
 	private String cognome;
+	
+	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date dataDiNascita;
+	
+	@OneToMany(mappedBy="paziente", cascade = {CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	private List<Esame> esami;
 	
 	public Paziente(){

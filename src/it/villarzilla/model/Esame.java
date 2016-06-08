@@ -3,12 +3,18 @@ package it.villarzilla.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToOne;
+
 public class Esame {
 	
 	private Long id;
 	private Date prenotazione;
 	private Date esame;
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private Paziente paziente;
+	
 	private Medico medico;
 	private TipologiaEsame tipologia;
 	private List<Risultato> risultati;
