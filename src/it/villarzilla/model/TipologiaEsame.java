@@ -34,8 +34,10 @@ public class TipologiaEsame {
 	@ManyToMany
 	private List<Prerequisiti> prerequisiti;
 	
-	@OneToMany(mappedBy="esame")
+	@OneToMany(mappedBy="tipologia")
 	private List<Esame> esami;
+	
+	@OneToMany(mappedBy="tipologia")
 	private List<Indicatore> indicatori;
 	
 	public TipologiaEsame(){
