@@ -34,15 +34,6 @@ public class Medico {
 		
 	}
 
-	public Medico(Long id, String nome, String cognome, String specializzazione, List<Esame> esami) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.specializzazione = specializzazione;
-		this.esami = esami;
-	}
-
 	public Long getId() {
 		return id;
 	}

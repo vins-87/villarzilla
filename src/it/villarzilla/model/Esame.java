@@ -50,18 +50,6 @@ public class Esame {
 		
 	}
 
-	public Esame(Long id, Date prenotazione, Date esame, Paziente paziente, Medico medico, TipologiaEsame tipologia,
-			List<Risultato> risultati) {
-		super();
-		this.id = id;
-		this.prenotazione = prenotazione;
-		this.dataEsame = esame;
-		this.paziente = paziente;
-		this.medico = medico;
-		this.tipologia = tipologia;
-		this.risultati = risultati;
-	}
-
 	public Long getId() {
 		return id;
 	}

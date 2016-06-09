@@ -31,14 +31,6 @@ public class Risultato {
 		
 	}
 
-	public Risultato(Long id, String valore, Esame esame, Indicatore indicatore) {
-		super();
-		this.id = id;
-		this.valore = valore;
-		this.esame = esame;
-		this.indicatore = indicatore;
-	}
-
 	public Long getId() {
 		return id;
 	}

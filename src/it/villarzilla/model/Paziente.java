@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -17,6 +19,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="pazienti")
+@NamedQueries({
+	@NamedQuery(name = "Paziente.findAll", query = "SELECT p FROM Paziente p")
+})
 public class Paziente {
 	
 	@Id
@@ -38,14 +43,6 @@ public class Paziente {
 	
 	public Paziente(){
 		
-	}
-	
-	public Paziente(Long id, String nome, String cognome, Date dataDiNascita, List<Esame> esami) {
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.dataDiNascita = dataDiNascita;
-		this.esami = esami;
 	}
 
 	public List<Esame> getEsami() {

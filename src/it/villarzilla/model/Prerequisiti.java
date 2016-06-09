@@ -24,13 +24,6 @@ public class Prerequisiti {
 	public Prerequisiti(){
 		
 	}
-	
-	public Prerequisiti(Long id, String nome, String descrizione) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.descrizione = descrizione;
-	}
 
 	public Long getId() {
 		return id;

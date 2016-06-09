@@ -43,19 +43,6 @@ public class TipologiaEsame {
 	public TipologiaEsame(){
 		
 	}
-	
-	public TipologiaEsame(Long id, String nome, String codice, String descrizione, Double costo,
-			List<Prerequisiti> prerequisiti, List<Esame> esami, List<Indicatore> indicatori) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.codice = codice;
-		this.descrizione = descrizione;
-		this.costo = costo;
-		this.prerequisiti = prerequisiti;
-		this.esami = esami;
-		this.indicatori = indicatori;
-	}
 
 	public Long getId() {
 		return id;

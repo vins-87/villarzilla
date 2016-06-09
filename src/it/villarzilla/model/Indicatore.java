@@ -27,13 +27,6 @@ public class Indicatore {
 		
 	}
 
-	public Indicatore(Long id, String nome, TipologiaEsame tipologia) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.tipologia = tipologia;
-	}
-
 	public Long getId() {
 		return id;
 	}
