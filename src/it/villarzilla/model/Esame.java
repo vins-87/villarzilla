@@ -4,19 +4,46 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@Entity
+@Table(name="esami")
 public class Esame {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private Date prenotazione;
-	private Date esame;
 	
+	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
+	private Date prenotazione;
+	
+	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
+	private Date dataEsame;
+	
+	@Column
 	@ManyToOne(cascade = {CascadeType.PERSIST})
 	private Paziente paziente;
 	
+	@Column
+	@ManyToOne
 	private Medico medico;
+	
+	@Column
+	@ManyToOne
 	private TipologiaEsame tipologia;
+	
+	@OneToMany(mappedBy="esame")
 	private List<Risultato> risultati;
 	
 	public Esame(){
@@ -28,7 +55,7 @@ public class Esame {
 		super();
 		this.id = id;
 		this.prenotazione = prenotazione;
-		this.esame = esame;
+		this.dataEsame = esame;
 		this.paziente = paziente;
 		this.medico = medico;
 		this.tipologia = tipologia;
@@ -52,11 +79,11 @@ public class Esame {
 	}
 
 	public Date getEsame() {
-		return esame;
+		return dataEsame;
 	}
 
 	public void setEsame(Date esame) {
-		this.esame = esame;
+		this.dataEsame = esame;
 	}
 
 	public Paziente getPaziente() {

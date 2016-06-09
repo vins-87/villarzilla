@@ -2,14 +2,39 @@ package it.villarzilla.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tipologie_esami")
 public class TipologiaEsame {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@Column(nullable=false, length=50)
 	private String nome;
+	
+	@Column(nullable=false, length=50)
 	private String codice;
+	
+	@Column(nullable=true, length=200)
 	private String descrizione;
+	
+	@Column(nullable=false)
 	private Double costo;
+	
+	@ManyToMany
 	private List<Prerequisiti> prerequisiti;
+	
+	@OneToMany(mappedBy="esame")
 	private List<Esame> esami;
 	private List<Indicatore> indicatori;
 	

@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="pazienti")
 public class Paziente {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
