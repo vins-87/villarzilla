@@ -8,7 +8,18 @@
 </h:head>
 <h:body>
 <c:forEach var="c" items="#{pazienteController.getList()}">
-#{c.nome}
+<table border="1">
+	<tr>
+    	<th>NOME</th>
+    	<th>COGNOME</th>
+    	<th>DATA DI NASCITA</th>
+  	</tr>
+  	<tr>
+    	<td>#{c.nome}</td>
+    	<td>#{c.cognome}</td>
+    	<td>#{c.dataDiNascita}</td>
+  	</tr>
+</table>
 </c:forEach>
 </h:body>
 </html>
