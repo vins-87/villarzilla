@@ -15,6 +15,7 @@ public class PazienteController {
 	private String nome;
 	private String cognome;
 	private Date dataDiNascita;
+	
 	private Paziente paziente;
 	
 	@EJB

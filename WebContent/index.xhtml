@@ -7,8 +7,9 @@
 	<title>Index</title>
 </h:head>
 <h:body>
-<c:forEach var="c" items="#{pazienteController.getList()}">
+
 <table border="1">
+<c:forEach var="c" items="#{pazienteController.getList()}">
 	<tr>
     	<th>NOME</th>
     	<th>COGNOME</th>
@@ -19,7 +20,7 @@
     	<td>#{c.cognome}</td>
     	<td>#{c.dataDiNascita}</td>
   	</tr>
-</table>
 </c:forEach>
+</table>
 </h:body>
 </html>
