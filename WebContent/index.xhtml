@@ -16,15 +16,15 @@
     		<th>DATA DI NASCITA</th>
   			</tr>
   	</thead>
-<c:forEach var="c" items="#{pazienteController.getList()}">
-	<tbody>
-  		<tr>
-    		<td>#{c.nome}</td>
-    		<td>#{c.cognome}</td>
-    		<td>#{c.dataDiNascita}</td>
-  		</tr>
+  	<tbody>
+		<c:forEach var="c" items="#{pazienteController.getList()}">
+			<tr>
+    			<td>#{c.nome}</td>
+    			<td>#{c.cognome}</td>
+    			<td>#{c.dataDiNascita}</td>
+  			</tr>
+		</c:forEach>
   	</tbody>
-</c:forEach>
 </table>
 </h:body>
 </html>
