@@ -20,7 +20,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="esami")
 @NamedQueries({
-	@NamedQuery(name="Esame.findAll", query="SELECT e FROM Esame e")
+	@NamedQuery(name="Esame.findAll", query="SELECT e FROM Esame e"),
+	@NamedQuery(name="Esame.findById", query="SELECT e FROM Esame e WHERE e.id = :id")
+
 })
 public class Esame {
 	
@@ -46,7 +48,7 @@ public class Esame {
 	
 	@Column
 	@ManyToOne
-	private TipologiaEsame tipologia;
+	private TipologiaEsame tipologiaEsame;
 	
 	@OneToMany(mappedBy="esame")
 	private List<Risultato> risultati;
@@ -71,12 +73,12 @@ public class Esame {
 		this.prenotazione = prenotazione;
 	}
 
-	public Date getEsame() {
+	public Date getDataEsame() {
 		return dataEsame;
 	}
 
-	public void setEsame(Date esame) {
-		this.dataEsame = esame;
+	public void setDataEsame(Date dataEsame) {
+		this.dataEsame = dataEsame;
 	}
 
 	public Paziente getPaziente() {
@@ -95,12 +97,12 @@ public class Esame {
 		this.medico = medico;
 	}
 
-	public TipologiaEsame getTipologia() {
-		return tipologia;
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
 	}
 
-	public void setTipologia(TipologiaEsame tipologia) {
-		this.tipologia = tipologia;
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
 	}
 
 	public List<Risultato> getRisultati() {

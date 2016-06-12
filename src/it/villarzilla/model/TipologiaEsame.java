@@ -16,7 +16,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tipologie_esami")
 @NamedQueries({
-	@NamedQuery(name="TipologiaEsame.findAll", query="SELECT t FROM TipologiaEsame t")
+	@NamedQuery(name="TipologiaEsame.findAll", query="SELECT t FROM TipologiaEsame t"),
+	@NamedQuery(name="TipologiaEsame.findById", query="SELECT t FROM TipologiaEsame t WHERE t.id = :id")
 })
 public class TipologiaEsame {
 	
@@ -39,10 +40,10 @@ public class TipologiaEsame {
 	@ManyToMany
 	private List<Prerequisiti> prerequisiti;
 	
-	@OneToMany(mappedBy="tipologia")
+	@OneToMany(mappedBy="tipologiaEsame")
 	private List<Esame> esami;
 	
-	@OneToMany(mappedBy="tipologia")
+	@OneToMany(mappedBy="tipologiaEsame")
 	private List<Indicatore> indicatori;
 	
 	public TipologiaEsame(){

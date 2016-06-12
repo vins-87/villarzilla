@@ -29,13 +29,13 @@ public class EsameFacade {
 		
 	}
 	
-	public Esame createEsame(Date prenotazione, Date dataEsame, Paziente paziente, Medico medico, TipologiaEsame tipologia){
+	public Esame createEsame(Date prenotazione, Date dataEsame, Paziente paziente, Medico medico, TipologiaEsame tipologiaEsame){
 		Esame e=new Esame();
 		e.setPrenotazione(prenotazione);
-		e.setEsame(dataEsame);
+		e.setDataEsame(dataEsame);
 		e.setPaziente(paziente);
 		e.setMedico(medico);
-		e.setTipologia(tipologia);
+		e.setTipologiaEsame(tipologiaEsame);
 		this.em.persist(e);
 		return e;
 	}

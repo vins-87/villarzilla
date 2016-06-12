@@ -12,7 +12,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="prerequisiti")
 @NamedQueries({
-	@NamedQuery(name="Prerequisiti.findAll", query="SELECT p FROM Prerequisiti p")
+	@NamedQuery(name="Prerequisiti.findAll", query="SELECT p FROM Prerequisiti p"),
+	@NamedQuery(name="Prerequisiti.findById", query="SELECT p FROM Prerequisiti p WHERE p.id = :id")
 })
 public class Prerequisiti {
 	

@@ -13,7 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="indicatori")
 @NamedQueries({
-	@NamedQuery(name="Indicatore.findAll", query="SELECT i FROM Indicatore i")
+	@NamedQuery(name="Indicatore.findAll", query="SELECT i FROM Indicatore i"),
+	@NamedQuery(name="Indicatore.findById", query="SELECT i FROM Indicatore i WHERE i.id = :id")
 })
 public class Indicatore {
 
@@ -26,7 +27,7 @@ public class Indicatore {
 	
 	@Column
 	@ManyToOne
-	private TipologiaEsame tipologia;
+	private TipologiaEsame tipologiaEsame;
 	
 	public Indicatore(){
 		
@@ -48,12 +49,12 @@ public class Indicatore {
 		this.nome = nome;
 	}
 
-	public TipologiaEsame getTipologia() {
-		return tipologia;
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
 	}
 
-	public void setTipologia(TipologiaEsame tipologia) {
-		this.tipologia = tipologia;
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
 	}
 
 	@Override

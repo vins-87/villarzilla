@@ -20,7 +20,8 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="pazienti")
 @NamedQueries({
-	@NamedQuery(name = "Paziente.findAll", query = "SELECT p FROM Paziente p")
+	@NamedQuery(name = "Paziente.findAll", query = "SELECT p FROM Paziente p"),
+	@NamedQuery(name="Paziente.findById", query="SELECT p FROM Paziente p WHERE p.id = :id")
 })
 public class Paziente {
 	

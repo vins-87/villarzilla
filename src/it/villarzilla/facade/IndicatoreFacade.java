@@ -26,10 +26,10 @@ public class IndicatoreFacade {
 		
 	}
 	
-	public Indicatore createIndicatore(String nome, TipologiaEsame tipologia){
+	public Indicatore createIndicatore(String nome, TipologiaEsame tipologiaEsame){
 		Indicatore i=new Indicatore();
 		i.setNome(nome);
-		i.setTipologia(tipologia);
+		i.setTipologiaEsame(tipologiaEsame);
 		this.em.persist(i);
 		return i;
 	}

@@ -13,7 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="risultati")
 @NamedQueries({
-	@NamedQuery(name="Risultato.findAll", query="SELECT r FROM Risultato r")
+	@NamedQuery(name="Risultato.findAll", query="SELECT r FROM Risultato r"),
+	@NamedQuery(name="Risultato.findById", query="SELECT r FROM Risultato r WHERE r.id = :id")
 })
 public class Risultato {
 	

@@ -19,7 +19,7 @@ public class EsameController {
 	private Date dataEsame;
 	private Paziente paziente;
 	private Medico medico;
-	private TipologiaEsame tipologia;
+	private TipologiaEsame tipologiaEsame;
 	
 	private Esame esame;
 	
@@ -31,7 +31,7 @@ public class EsameController {
 	}
 	
 	public String createEsame(){
-		this.esame = esameFacade.createEsame(prenotazione, dataEsame, paziente, medico, tipologia);
+		this.esame = esameFacade.createEsame(prenotazione, dataEsame, paziente, medico, tipologiaEsame);
 		return "/esame.xhtml";
 	}
 	
@@ -71,12 +71,12 @@ public class EsameController {
 		this.medico = medico;
 	}
 
-	public TipologiaEsame getTipologia() {
-		return tipologia;
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
 	}
 
-	public void setTipologia(TipologiaEsame tipologia) {
-		this.tipologia = tipologia;
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
 	}
 
 	public EsameFacade getEsameFacade() {

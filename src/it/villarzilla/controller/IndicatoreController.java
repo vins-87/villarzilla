@@ -13,7 +13,7 @@ import it.villarzilla.model.TipologiaEsame;
 public class IndicatoreController {
 
 	private String nome;
-	private TipologiaEsame tipologia;
+	private TipologiaEsame tipologiaEsame;
 	
 	private Indicatore indicatore;
 	
@@ -25,7 +25,7 @@ public class IndicatoreController {
 	}
 	
 	public String createIndicatore(){
-		this.indicatore = indicatoreFacade.createIndicatore(nome, tipologia);
+		this.indicatore = indicatoreFacade.createIndicatore(nome, tipologiaEsame);
 		return "/indicatore.xhtml";
 	}
 	
@@ -41,12 +41,12 @@ public class IndicatoreController {
 		this.nome = nome;
 	}
 
-	public TipologiaEsame getTipologia() {
-		return tipologia;
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
 	}
 
-	public void setTipologia(TipologiaEsame tipologia) {
-		this.tipologia = tipologia;
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
 	}
 
 	public Indicatore getIndicatore() {
