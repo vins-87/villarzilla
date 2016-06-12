@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import it.villarzilla.model.Esame;
@@ -37,6 +38,14 @@ public class RisultatoFacade {
 	
 	public List<Risultato> getAllRisultato(){
 		return this.em.createNamedQuery("Risultato.findAll", Risultato.class).getResultList();
+	}
+	
+	public Risultato getRisultato(Long id) {
+		try {
+			return this.em.createNamedQuery("Risultato.findById", Risultato.class).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 }

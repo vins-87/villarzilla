@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import it.villarzilla.model.Paziente;
@@ -36,6 +37,14 @@ public class PazienteFacade {
 	
 	public List<Paziente> getAllPaziente(){
 		return this.em.createNamedQuery("Paziente.findAll", Paziente.class).getResultList();
+	}
+	
+	public Paziente getPaziente(Long id) {
+		try {
+			return this.em.createNamedQuery("Paziente.findById", Paziente.class).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 }

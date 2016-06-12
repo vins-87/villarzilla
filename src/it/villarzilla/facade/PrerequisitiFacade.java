@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import it.villarzilla.model.Prerequisiti;
@@ -34,5 +35,13 @@ public class PrerequisitiFacade {
 	
 	public List<Prerequisiti> getAllPrerequisiti(){
 		return this.em.createNamedQuery("Prerequisiti.findAll", Prerequisiti.class).getResultList();
+	}
+	
+	public Prerequisiti getPrerequisiti(Long id) {
+		try {
+			return this.em.createNamedQuery("Prerequisiti.findById", Prerequisiti.class).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 }

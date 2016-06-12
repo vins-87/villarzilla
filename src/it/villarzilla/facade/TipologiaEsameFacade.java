@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import it.villarzilla.model.TipologiaEsame;
@@ -36,6 +37,14 @@ public class TipologiaEsameFacade {
 	
 	public List<TipologiaEsame> getAllTipologiaEsame(){
 		return this.em.createNamedQuery("TipologiaEsame.findAll", TipologiaEsame.class).getResultList();
+	}
+	
+	public TipologiaEsame getTipologiaEsame(Long id) {
+		try {
+			return this.em.createNamedQuery("TipologiaEsame.findById", TipologiaEsame.class).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 }

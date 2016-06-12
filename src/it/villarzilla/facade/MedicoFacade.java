@@ -41,4 +41,12 @@ public class MedicoFacade {
 			return null;
 		}
 	}
+	
+	public Medico getMedico(Long id) {
+		try {
+			return this.em.createNamedQuery("Medico.findById", Medico.class).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 }

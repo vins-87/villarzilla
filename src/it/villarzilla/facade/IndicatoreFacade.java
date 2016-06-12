@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import it.villarzilla.model.Indicatore;
@@ -35,5 +36,13 @@ public class IndicatoreFacade {
 	
 	public List<Indicatore> getAllIndicatore(){
 		return this.em.createNamedQuery("Indicatore.findAll", Indicatore.class).getResultList();
+	}
+	
+	public Indicatore getIndicatore(Long id) {
+		try {
+			return this.em.createNamedQuery("Indicatore.findById", Indicatore.class).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 }
