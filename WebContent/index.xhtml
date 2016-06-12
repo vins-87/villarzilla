@@ -9,17 +9,21 @@
 <h:body>
 
 <table border="1">
+	<thead>
+		<tr>
+    		<th>NOME</th>
+   	 		<th>COGNOME</th>
+    		<th>DATA DI NASCITA</th>
+  			</tr>
+  	</thead>
 <c:forEach var="c" items="#{pazienteController.getList()}">
-	<tr>
-    	<th>NOME</th>
-    	<th>COGNOME</th>
-    	<th>DATA DI NASCITA</th>
-  	</tr>
-  	<tr>
-    	<td>#{c.nome}</td>
-    	<td>#{c.cognome}</td>
-    	<td>#{c.dataDiNascita}</td>
-  	</tr>
+	<tbody>
+  		<tr>
+    		<td>#{c.nome}</td>
+    		<td>#{c.cognome}</td>
+    		<td>#{c.dataDiNascita}</td>
+  		</tr>
+  	</tbody>
 </c:forEach>
 </table>
 </h:body>
