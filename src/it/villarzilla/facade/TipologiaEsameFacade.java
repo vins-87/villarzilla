@@ -2,6 +2,7 @@ package it.villarzilla.facade;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import it.villarzilla.model.TipologiaEsame;
 
 @Stateless
+@EJB(name="ejb/TipologiaEsameFacade", beanInterface=TipologiaEsameFacade.class, beanName="TipologiaEsameFacade")
 public class TipologiaEsameFacade {
 
 	@PersistenceContext(unitName="villarzilla")

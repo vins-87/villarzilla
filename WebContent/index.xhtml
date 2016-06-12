@@ -7,24 +7,10 @@
 	<title>Index</title>
 </h:head>
 <h:body>
+<p><a href="/Villarzilla/viewPazienti.xhtml">LISTA PAZIENTI</a></p>
+<p><a href="/Villarzilla/viewMedici.xhtml">LISTA MEDICI</a></p>
+<p><a href="/Villarzilla/viewEsami.xhtml">LISTA ESAMI</a></p>
+<p><a href="/Villarzilla/viewTipologia.xhtml">LISTA TIPOLOGIE ESAMI</a></p>
 
-<table border="1">
-	<thead>
-		<tr>
-    		<th>NOME</th>
-   	 		<th>COGNOME</th>
-    		<th>DATA DI NASCITA</th>
-  			</tr>
-  	</thead>
-  	<tbody>
-		<c:forEach var="c" items="#{pazienteController.getList()}">
-			<tr>
-    			<td>#{c.nome}</td>
-    			<td>#{c.cognome}</td>
-    			<td>#{c.dataDiNascita}</td>
-  			</tr>
-		</c:forEach>
-  	</tbody>
-</table>
 </h:body>
 </html>

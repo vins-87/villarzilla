@@ -8,11 +8,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tipologie_esami")
+@NamedQueries({
+	@NamedQuery(name="TipologiaEsame.findAll", query="SELECT t FROM TipologiaEsame t")
+})
 public class TipologiaEsame {
 	
 	@Id

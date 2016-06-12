@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>createEsame</title>
+</h:head>
+<h:body>
+<h:form id="formRegistra">
+	Data prenotazione: <h:inputText value="#{esameController.prenotazione}" required="true" binding="#{prenotazione}" id="prenotazione"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText>
+	<p>Data esame: <h:inputText value="#{esameController.dataEsame}" required="true" binding="#{dataEsame}" id="dataEsame"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText></p>
+	<p>Paziente: <h:selectOneMenu value="#{esameController.paziente}"
+								id="paziente" required="true" binding="#{paziente}">
+								<f:selectItem itemLabel="Seleziona un paziente" selected="true" />
+								<f:selectItems value="#{pazienteController.getList()}" var="paziente"
+									itemLabel="#{paziente.nome}" itemValue="#{paziente}" />
+							</h:selectOneMenu>
+	</p>
+	<p>Medico: <h:selectOneMenu value="#{esameController.medico}"
+								id="medico" required="true" binding="#{medico}">
+								<f:selectItem itemLabel="Seleziona un medico" selected="true" />
+								<f:selectItems value="#{medicoController.getList()}" var="medico"
+									itemLabel="#{medico.nome}" itemValue="#{medico}" />
+							</h:selectOneMenu>
+	</p>
+	<p>Tipologia: <h:selectOneMenu value="#{tipologiaEsameController.tipologiaEsame}"
+								id="tipologiaEsame" required="true" binding="#{tipologiaEsame}">
+								<f:selectItem itemLabel="Seleziona una tipologia" selected="true" />
+								<f:selectItems value="#{tipologiaEsameController.getList()}" var="tipologiaEsame"
+									itemLabel="#{tipologiaEsame.nome}" itemValue="#{tipologiaEsame}" />
+							</h:selectOneMenu>
+	</p>
+	<p><h:message for="prenotazione" style="color:red" /></p>
+	<p><h:message for="dataEsame" style="color:red" /></p>
+	<p>
+		<h:commandButton value="Inserisci" action="#{esameController.createEsame}"/>
+	</p>
+</h:form>
+</h:body>
+</html>

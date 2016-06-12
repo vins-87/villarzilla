@@ -8,9 +8,9 @@
 </h:head>
 <h:body>
 <h:form id="formRegistra">
-	Nome:<h:inputText value="#{pazienteController.nome}" required="true" binding="#{nome}" id="nome"/>
-	Cognome:<h:inputText value="#{pazienteController.cognome}" required="true" binding="#{cognome}" id="cognome"/>
-	Data di nascita:<h:inputText value="#{pazienteController.dataDiNascita}" required="true" binding="#{dataDiNascita}" id="dataDiNascita"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText>
+	<p>Nome:<h:inputText value="#{pazienteController.nome}" required="true" binding="#{nome}" id="nome"/></p>
+	<p>Cognome:<h:inputText value="#{pazienteController.cognome}" required="true" binding="#{cognome}" id="cognome"/></p>
+	<p>Data di nascita:<h:inputText value="#{pazienteController.dataDiNascita}" required="true" binding="#{dataDiNascita}" id="dataDiNascita"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText></p>
 	<p><h:message for="dataDiNascita" style="color:red" /></p>
 	<p>
 		<h:commandButton value="Inserisci" action="#{pazienteController.createPaziente}"/>

@@ -6,10 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="indicatori")
+@NamedQueries({
+	@NamedQuery(name="Indicatore.findAll", query="SELECT i FROM Indicatore i")
+})
 public class Indicatore {
 
 	@Id

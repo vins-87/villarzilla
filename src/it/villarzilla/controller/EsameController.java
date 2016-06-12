@@ -31,7 +31,7 @@ public class EsameController {
 	}
 	
 	public String createEsame(){
-		this.esame = esameFacade.createEsame(prenotazione, dataEsame, paziente, medico);
+		this.esame = esameFacade.createEsame(prenotazione, dataEsame, paziente, medico, tipologia);
 		return "/esame.xhtml";
 	}
 	

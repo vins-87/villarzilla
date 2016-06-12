@@ -5,10 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="prerequisiti")
+@NamedQueries({
+	@NamedQuery(name="Prerequisiti.findAll", query="SELECT p FROM Prerequisiti p")
+})
 public class Prerequisiti {
 	
 	@Id

@@ -2,6 +2,7 @@ package it.villarzilla.facade;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,6 +12,7 @@ import it.villarzilla.model.Indicatore;
 import it.villarzilla.model.Risultato;
 
 @Stateless
+@EJB(name="ejb/RisultatoFacade", beanInterface=RisultatoFacade.class, beanName="RisultatoFacade")
 public class RisultatoFacade {
 	
 	@PersistenceContext(unitName="villarzilla")

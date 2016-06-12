@@ -2,13 +2,16 @@ package it.villarzilla.facade;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import it.villarzilla.model.Medico;
 
 @Stateless
+@EJB(name="ejb/MedicoFacade", beanInterface=MedicoFacade.class, beanName="MedicoFacade")
 public class MedicoFacade {
 
 	@PersistenceContext(unitName="villarzilla")
@@ -32,6 +35,10 @@ public class MedicoFacade {
 	}
 	
 	public List<Medico> getAllMedico(){
-		return this.em.createNamedQuery("Medico.findAll", Medico.class).getResultList();
+		try{
+			return this.em.createNamedQuery("Medico.findAll", Medico.class).getResultList();
+		}catch (NoResultException error){
+			return null;
+		}
 	}
 }

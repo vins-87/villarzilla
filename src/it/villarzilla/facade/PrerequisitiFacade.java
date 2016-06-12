@@ -2,6 +2,7 @@ package it.villarzilla.facade;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import it.villarzilla.model.Prerequisiti;
 
 @Stateless
+@EJB(name="ejb/PrerequisitiFacade", beanInterface=PrerequisitiFacade.class, beanName="PrerequisitiFacade")
 public class PrerequisitiFacade {
 
 	@PersistenceContext(unitName="villarzilla")
