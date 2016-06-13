@@ -28,7 +28,7 @@ public class AmministrazioneController {
 	
 	public String createAmministratore() {
 		this.amministratore = amministratoreFacade.createAmministratore(nome, password);
-		return "/portaleAmministratore/amministratore.xhtml";
+		return "/amministratore.xhtml";
 	}
 	
 	public String accedi(Amministratore amministratore){
