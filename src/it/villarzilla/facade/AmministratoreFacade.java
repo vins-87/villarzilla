@@ -45,4 +45,12 @@ public class AmministratoreFacade {
 		}
 	}
 	
+	public Amministratore getAmministratore(String nome){
+		try {
+			return this.em.createNamedQuery("Cameriere.findByNome", Amministratore.class).setParameter("nome", nome).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	
 }
