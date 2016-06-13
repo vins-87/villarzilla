@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>createRisultato</title>
+</h:head>
+<h:body>
+<h:form id="formRegistra">
+	<p>Risultato creato con valore:<h:inputText value="#{risultatoController.valore}" required="true" binding="#{valore}" id="valore"></h:inputText></p>
+	<p>Esame:<h:selectOneMenu value="#{risultatoController.esame}"
+								id="esame" required="true" binding="#{esame}">
+								<f:selectItem itemLabel="Seleziona un esame" selected="true" />
+								<f:selectItems value="#{esameController.getList()}" var="esame"
+									itemLabel="#{esame.dataEsame} #{esame.paziente.nome} #{esame.paziente.cognome}" itemValue="#{esame}" />
+							</h:selectOneMenu>
+	</p>
+	<p>Indicatore:<h:selectOneMenu value="#{risultatoController.indicatore}"
+								id="indicatore" required="true" binding="#{indicatore}">
+								<f:selectItem itemLabel="Seleziona un indicatore" selected="true" />
+								<f:selectItems value="#{indicatoreController.getList()}" var="indicatore"
+									itemLabel="#{indicatore.nome}" itemValue="#{indicatore}" />
+							</h:selectOneMenu>
+	</p>
+	<p>
+		<h:commandButton value="Inserisci" action="#{risultatoController.createRisultato}"/>
+	</p>
+</h:form>
+</h:body>
+</html>

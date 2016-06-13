@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Risultato</title>
+	
+</h:head>
+<h:body>
+	<div class="container">
+		<h3>Creato risultato : ${risultatoController.risultato.valore}</h3>
+		<h3>del paziente : ${risultatoController.esame.paziente.nome} ${risultatoController.esame.paziente.cognome}</h3>
+		<h3>tenuto il : ${risultatoController.esame.dataEsame}</h3>
+		<h3>e con l'indicatore : ${risultatoController.indicatore.nome}</h3>
+	</div>
+
+</h:body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>Indicatori</title>
+</h:head>
+<h:body>
+
+<table border="1">
+	<thead>
+	<th colspan="2">INDICATORI</th>
+		<tr>
+    		<th>NOME</th>
+   	 		<th>TIPOLOGIA</th>
+  			</tr>
+  	</thead>
+  	<tbody>
+		<c:forEach var="c" items="#{indicatoreController.getList()}">
+			<tr>
+    			<td>#{c.nome}</td>
+    			<td>#{c.tipologiaEsame.nome}</td>
+  			</tr>
+		</c:forEach>
+  	</tbody>
+</table>
+</h:body>
+</html>
