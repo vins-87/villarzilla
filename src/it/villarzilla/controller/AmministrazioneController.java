@@ -36,7 +36,7 @@ public class AmministrazioneController {
 	    if(amministratore!=null){
 	      if(amministratore.getPassword().equals(this.password)){
 	        this.sessione.login(amministratore);
-	        return "/portaleAmministrazione/portaleAmministrazione.xhtml?faces-redirect=true";
+	        return "/portaleAmministrazione/portaleAmministratore.xhtml?faces-redirect=true";
 	      } else {return "/loginAdmin.xhtml";}
 	    }
 	    return "/loginAdmin.xhtml";
