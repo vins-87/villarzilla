@@ -2,6 +2,7 @@ package it.villarzilla.controller;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 import it.villarzilla.facade.AmministratoreFacade;
 import it.villarzilla.manager.AmministrazioneManager;
@@ -13,6 +14,9 @@ public class AmministrazioneController {
 	private String nome;
 	private String password;
 	
+	private Amministratore amministratore;
+	
+	@ManagedProperty(value = "#{amministrazioneManager}")
 	private AmministrazioneManager sessione;
 	
 	@EJB
@@ -22,14 +26,21 @@ public class AmministrazioneController {
 		
 	}
 	
-	public String accedi(Amministratore a){
-		if(a.getPassword().equals(this.password)){
-			this.sessione.login(a);
-			return "/portaleAmministratore/portaleAdmin.xhtml?faces-redirect=true";
+	public String createAmministratore() {
+		this.amministratore = amministratoreFacade.createAmministratore(nome, password);
+		return "/portaleAmministratore/amministratore.xhtml";
+	}
+	
+	public String accedi(Amministratore amministratore){
+		if(amministratore.getPassword().equals(this.password)){
+			this.sessione.login(amministratore);
+			return "/portaleAmministratore/portaleAmministratore.xhtml?faces-redirect=true";
 		}
 		return "/loginAdmin.xhtml";
 	}
 
+	//Inizio Getter & Setter
+	
 	public String getNome() {
 		return nome;
 	}
@@ -52,6 +63,22 @@ public class AmministrazioneController {
 
 	public void setAmministratoreFacade(AmministratoreFacade amministratoreFacade) {
 		this.amministratoreFacade = amministratoreFacade;
+	}
+
+	public Amministratore getAmministratore() {
+		return amministratore;
+	}
+
+	public void setAmministratore(Amministratore amministratore) {
+		this.amministratore = amministratore;
+	}
+
+	public AmministrazioneManager getSessione() {
+		return sessione;
+	}
+
+	public void setSessione(AmministrazioneManager sessione) {
+		this.sessione = sessione;
 	}
 	
 	

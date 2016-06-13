@@ -17,8 +17,8 @@ public class AmministrazioneManager {
         return "/loginAdmin.xhtml?faces-redirect=true";
     }
     
-    public void login(Amministratore a){
-    	this.current = a;
+    public void login(Amministratore amministratore){
+    	this.current = amministratore;
     }
     
 	public Amministratore getCurrent() {

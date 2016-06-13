@@ -5,6 +5,7 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<title>PortaleAmministrazione</title>
+	<a href="">Benvenuto #{amministrazioneManager.current.nome}</a>
 </h:head>
 <h:body>
 <table border="1">
@@ -39,5 +40,8 @@
 		</TR>
 	</TBODY>
 </table>
+	<h:form>
+    	<h:commandLink action="#{amministrazioneManager.logout()}"> Logout </h:commandLink>
+	</h:form>
 </h:body>
 </html>
