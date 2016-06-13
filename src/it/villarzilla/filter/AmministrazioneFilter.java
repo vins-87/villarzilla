@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.villarzilla.manager.AmministrazioneManager;
 
-@WebFilter("/portaleAdmin/*")
+@WebFilter("/portaleAmministrazione/*")
 public class AmministrazioneFilter implements Filter {
 
 	@Override

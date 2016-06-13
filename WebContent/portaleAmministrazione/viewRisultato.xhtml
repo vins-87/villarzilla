@@ -10,11 +10,11 @@
 ${risultatoController.esame.paziente.nome} ${risultatoController.esame.dataEsame}
 <table border="1">
 	<thead>
-	<th colspan="5">RISULTATO</th>
+	<th colspan="2">RISULTATO</th>
 		<tr>
     		<th>VALORE</th>
    	 		<th>INDICATORE</th>
-  			</tr>
+  		</tr>
   	</thead>
   	<tbody>
 		<c:forEach var="c" items="#{risultatoController.getRisultati(risultatoController.esame)}">

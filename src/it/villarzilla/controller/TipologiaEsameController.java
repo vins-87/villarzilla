@@ -27,7 +27,12 @@ public class TipologiaEsameController {
 	
 	public String createTipologiaEsame(){
 		this.tipologiaEsame = tipologiaEsameFacade.createTipologiaEsame(nome, codice, costo, descrizione);
-		return "/tipologia.xhtml";
+		return "/portaleAmministrazione/tipologia.xhtml";
+	}
+	
+	public String viewTipologiaEsame(TipologiaEsame tipologiaEsame){
+		this.tipologiaEsame = tipologiaEsame;
+		return "/viewTipologia.xhtml";
 	}
 	
 	public List<TipologiaEsame> getList(){

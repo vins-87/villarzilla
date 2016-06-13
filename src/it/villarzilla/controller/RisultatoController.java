@@ -28,17 +28,17 @@ public class RisultatoController {
 	
 	public String createRisultato(Esame esame){
 		this.esame=esame;
-		return "/createRisultato.xhtml";
+		return "/portaleAmministrazione/createRisultato.xhtml";
 	}
 	
 	public String viewRisultato(Esame esame){
 		this.esame=esame;
-		return "/viewRisultato.xhtml";
+		return "/portaleAmministrazione/viewRisultato.xhtml";
 	}
 	
 	public String createRisultato(){
 		this.risultato = risultatoFacade.createRisultato(esame, indicatore, valore);
-		return "/risultato.xhtml";
+		return "/portaleAmministrazione/risultato.xhtml";
 	}
 	
 	public List<Risultato> getList(){

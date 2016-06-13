@@ -7,11 +7,24 @@
 	<title>Index</title>
 </h:head>
 <h:body>
+<h:outputLink value="/Villarzilla/portaleAmministrazione/index.xhtml">PORTALE AMMINISTRAZIONE</h:outputLink>
 <table border="1">
+<thead>
+	<th colspan="2">ELENCO TIPOLOGIE DI ESAME</th>
+		<tr>
+    		<th>TIPOLOGIA</th>
+    		<th>DETTAGLI</th>
+  		</tr>
+  	</thead>
 	<TBODY>
-		<TR>
-			<TD><a href="/Villarzilla/portaleAmministrazione/index.xhtml">PORTALE AMMINISTRAZIONE</a></TD>
-		</TR>
+		<c:forEach var="c" items="#{tipologiaEsameController.getList()}">
+			<tr>
+    			<td>#{c.nome}</td>
+    			<td><h:form><h:commandLink action="#{tipologiaEsameController.viewTipologiaEsame(c)}">
+							<h:graphicImage title="#{c.nome}" value="/img/note.png" width="10"/>
+						</h:commandLink></h:form></td>
+  			</tr>
+		</c:forEach>
 	</TBODY>
 </table>
 </h:body>
