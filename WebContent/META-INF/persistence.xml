@@ -9,6 +9,7 @@
     <class>it.villarzilla.model.Prerequisiti</class>
     <class>it.villarzilla.model.Risultato</class>
     <class>it.villarzilla.model.TipologiaEsame</class>
+    <class>it.villarzilla.model.Amministratore</class>
 
     <properties>
       <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>

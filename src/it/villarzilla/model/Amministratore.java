@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="amministratore")
+@Table(name="amministratori")
 @NamedQueries({
 	@NamedQuery(name = "Amministratore.findByNome", query = "SELECT a FROM Amministratore a WHERE a.nome = :nome"),
 	@NamedQuery(name="Amministratore.findById", query="SELECT a FROM Amministratore a WHERE a.id = :id")
