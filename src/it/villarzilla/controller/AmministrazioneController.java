@@ -31,10 +31,13 @@ public class AmministrazioneController {
 		return "/amministratore.xhtml";
 	}
 	
-	public String accedi(Amministratore amministratore){
-		if(amministratore.getPassword().equals(this.password)){
-			this.sessione.login(amministratore);
-			return "/portaleAmministratore/portaleAmministratore.xhtml?faces-redirect=true";
+	public String accedi(){
+		Amministratore amministratore = this.amministratoreFacade.getAmministratore(this.nome);
+		if(amministratore!=null){
+			if(amministratore.getPassword().equals(this.password)){
+				this.sessione.login(amministratore);
+				return "/portaleAmministratore/portaleAmministratore.xhtml?faces-redirect=true";
+			}
 		}
 		return "/loginAdmin.xhtml";
 	}
