@@ -32,15 +32,15 @@ public class AmministrazioneController {
 	}
 	
 	public String accedi(){
-		Amministratore amministratore = this.amministratoreFacade.getAmministratore(this.nome);
-		if(amministratore!=null){
-			if(amministratore.getPassword().equals(this.password)){
-				this.sessione.login(amministratore);
-				return "/portaleAmministratore/portaleAmministratore.xhtml?faces-redirect=true";
-			}
-		}
-		return "/loginAdmin.xhtml";
-	}
+	    Amministratore amministratore = this.amministratoreFacade.getAmministratore(this.nome);
+	    if(amministratore!=null){
+	      if(amministratore.getPassword().equals(this.password)){
+	        this.sessione.login(amministratore);
+	        return "/portaleAmministrazione/portaleAmministrazione.xhtml?faces-redirect=true";
+	      } else {return "/loginAdmin.xhtml";}
+	    }
+	    return "/loginAdmin.xhtml";
+	  }
 
 	//Inizio Getter & Setter
 	
