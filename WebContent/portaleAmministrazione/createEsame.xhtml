@@ -12,13 +12,7 @@
 	<p><h:message for="prenotazione" style="color:red" /></p>
 	<p>Data esame:<h:inputText value="#{esameController.dataEsame}" required="true" binding="#{dataEsame}" id="dataEsame"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText></p>
 	<p><h:message for="dataEsame" style="color:red" /></p>
-	<p>Paziente:<h:selectOneMenu value="#{esameController.paziente}"
-								id="paziente" required="true" binding="#{paziente}">
-								<f:selectItem itemLabel="Seleziona un paziente" selected="true" />
-								<f:selectItems value="#{pazienteController.getList()}" var="paziente"
-									itemLabel="#{paziente.nome}" itemValue="#{paziente}" />
-							</h:selectOneMenu>
-	</p>
+	<p><h:inputHidden value="#{esameController.paziente}"/></p>
 	<p>Medico:<h:selectOneMenu value="#{esameController.medico}"
 								id="medico" required="true" binding="#{medico}">
 								<f:selectItem itemLabel="Seleziona un medico" selected="true" />

@@ -26,6 +26,16 @@ public class RisultatoController {
 		
 	}
 	
+	public String createRisultato(Esame esame){
+		this.esame=esame;
+		return "/createRisultato.xhtml";
+	}
+	
+	public String viewRisultato(Esame esame){
+		this.esame=esame;
+		return "/viewRisultato.xhtml";
+	}
+	
 	public String createRisultato(){
 		this.risultato = risultatoFacade.createRisultato(esame, indicatore, valore);
 		return "/risultato.xhtml";
@@ -33,6 +43,10 @@ public class RisultatoController {
 	
 	public List<Risultato> getList(){
 		return risultatoFacade.getAllRisultato();
+	}
+	
+	public List<Risultato> getRisultati(Esame esame){
+		return this.risultatoFacade.getRisultati(esame);
 	}
 
 	//INIZIO GETTER AND SETTER

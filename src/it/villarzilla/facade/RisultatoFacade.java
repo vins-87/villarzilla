@@ -36,6 +36,11 @@ public class RisultatoFacade {
 		return r;
 	}
 	
+	public List<Risultato> getRisultati(Esame esame) {
+		esame = this.em.merge(esame);
+		return esame.getRisultati();
+	}
+	
 	public List<Risultato> getAllRisultato(){
 		return this.em.createNamedQuery("Risultato.findAll", Risultato.class).getResultList();
 	}

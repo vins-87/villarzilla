@@ -8,14 +8,8 @@
 </h:head>
 <h:body>
 <h:form id="formRegistra">
-	<p>Risultato creato con valore:<h:inputText value="#{risultatoController.valore}" required="true" binding="#{valore}" id="valore"></h:inputText></p>
-	<p>Esame:<h:selectOneMenu value="#{risultatoController.esame}"
-								id="esame" required="true" binding="#{esame}">
-								<f:selectItem itemLabel="Seleziona un esame" selected="true" />
-								<f:selectItems value="#{esameController.getList()}" var="esame"
-									itemLabel="#{esame.dataEsame} #{esame.paziente.nome} #{esame.paziente.cognome}" itemValue="#{esame}" />
-							</h:selectOneMenu>
-	</p>
+	<p>Inserisci valore:<h:inputText value="#{risultatoController.valore}" required="true" binding="#{valore}" id="valore"></h:inputText></p>
+	<p><h:inputHidden value="#{risultatoController.esame}"/></p>
 	<p>Indicatore:<h:selectOneMenu value="#{risultatoController.indicatore}"
 								id="indicatore" required="true" binding="#{indicatore}">
 								<f:selectItem itemLabel="Seleziona un indicatore" selected="true" />

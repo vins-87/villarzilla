@@ -10,13 +10,15 @@
 
 <table border="1">
 	<thead>
-	<th colspan="5">ESAMI</th>
+	<th colspan="7">ESAMI</th>
 		<tr>
     		<th>DATA PRENOTAZIONE</th>
    	 		<th>DATA ESAME</th>
     		<th>PAZIENTE</th>
     		<th>MEDICO</th>
     		<th>TIPOLOGIA</th>
+    		<th>ADD RISULTATO</th>
+    		<th>RISULTATO</th>
   			</tr>
   	</thead>
   	<tbody>
@@ -27,6 +29,12 @@
     			<td>#{c.paziente.nome}</td>
     			<td>#{c.medico.nome}</td>
     			<td>#{c.tipologiaEsame.nome}</td>
+    			<td><h:form><h:commandLink action="#{risultatoController.createRisultato(c)}">
+							<h:graphicImage title="#{c.paziente.nome}" value="/img/plus.png" width="10"/>
+						</h:commandLink></h:form></td>
+    			<td><h:form><h:commandLink action="#{risultatoController.viewRisultato(c)}">
+							<h:graphicImage title="#{c.paziente.nome}" value="/img/note.png" width="10"/>
+						</h:commandLink></h:form></td>
   			</tr>
 		</c:forEach>
   	</tbody>
