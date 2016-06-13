@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 
 import it.villarzilla.model.Amministratore;
 
-@ManagedBean(name = "adminManager")
+@ManagedBean(name = "amministrazioneManager")
 @SessionScoped
 public class AmministrazioneManager {
 

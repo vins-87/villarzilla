@@ -10,10 +10,10 @@
 	<div class="container">
 		<h2>Scegli Admin:</h2>
 		<h:form>
-			<h:inputText value="#{amministratoreController.nome}" id="nome" required="true" requiredMessage="nome utente obbligatorio"/>
-			<h:inputSecret value="#{amministratoreController.password}" id="password" required="true" requiredMessage="PW obbligatoria"/>
+			<h:inputText value="#{amministrazioneController.nome}" id="nome" required="true" requiredMessage="nome utente obbligatorio"/>
+			<h:inputSecret value="#{amministrazioneController.password}" id="password" required="true" requiredMessage="PW obbligatoria"/>
 			<h:message for="password"/>
-			<h:commandButton value="Accedi" action="#{amministratoreController.accedi(c)}"/>
+			<h:commandButton value="Accedi" action="#{amministrazioneController.accedi(c)}"/>
 		</h:form>
 	</div>
 </h:body>
