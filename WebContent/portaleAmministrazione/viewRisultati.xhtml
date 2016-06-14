@@ -23,8 +23,8 @@
 		<c:forEach var="c" items="#{risultatoController.getList()}">
 			<tr>
     			<td>#{c.esame.paziente.cognome}</td>
-    			<td>#{c.esame.dataEsame}</td>
     			<td>#{c.esame.paziente.nome}</td>
+    			<td>#{c.esame.dataEsame}</td>
     			<td>#{c.indicatore.nome}</td>
     			<td>#{c.valore}</td>
   			</tr>

@@ -12,19 +12,25 @@
 	<p><h:message for="prenotazione" style="color:red" /></p>
 	<p>Data esame:<h:inputText value="#{esameController.dataEsame}" required="true" binding="#{dataEsame}" id="dataEsame"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText></p>
 	<p><h:message for="dataEsame" style="color:red" /></p>
-	<p><h:inputHidden value="#{esameController.paziente}"/></p>
-	<p>Medico:<h:selectOneMenu value="#{esameController.medico}"
-								id="medico" required="true" binding="#{medico}">
-								<f:selectItem itemLabel="Seleziona un medico" selected="true" />
-								<f:selectItems value="#{medicoController.getList()}" var="medico"
-									itemLabel="#{medico.nome}" itemValue="#{medico}" />
-							</h:selectOneMenu>
-	</p>
 	<p>Tipologia:<h:selectOneMenu value="#{esameController.tipologiaEsame}"
 								id="tipologiaEsame" required="true" binding="#{tipologiaEsame}">
 								<f:selectItem itemLabel="Seleziona una tipologia" selected="true" />
 								<f:selectItems value="#{tipologiaEsameController.getList()}" var="tipologiaEsame"
 									itemLabel="#{tipologiaEsame.nome}" itemValue="#{tipologiaEsame}" />
+							</h:selectOneMenu>
+	</p>
+	<p>Paziente:<h:selectOneMenu value="#{esameController.paziente}"
+								id="medico" required="true" binding="#{paziente}">
+								<f:selectItem itemLabel="Seleziona un paziente" selected="true" />
+								<f:selectItems value="#{pazienteController.getList()}" var="paziente"
+									itemLabel="#{paziente.nome}" itemValue="#{paziente}" />
+							</h:selectOneMenu>
+	</p>
+	<p>Medico:<h:selectOneMenu value="#{esameController.medico}"
+								id="medico" required="true" binding="#{medico}">
+								<f:selectItem itemLabel="Seleziona un medico" selected="true" />
+								<f:selectItems value="#{medicoController.getList()}" var="medico"
+									itemLabel="#{medico.nome}" itemValue="#{medico}" />
 							</h:selectOneMenu>
 	</p>
 	<p>
