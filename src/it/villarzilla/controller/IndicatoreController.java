@@ -26,7 +26,7 @@ public class IndicatoreController {
 	
 	public String createIndicatore(){
 		this.indicatore = indicatoreFacade.createIndicatore(nome, tipologiaEsame);
-		return "/indicatore.xhtml";
+		return "/portaleAmministrazione/indicatore.xhtml";
 	}
 	
 	public List<Indicatore> getList(){

@@ -32,7 +32,7 @@ public class TipologiaEsameController {
 	
 	public String viewTipologiaEsame(TipologiaEsame tipologiaEsame){
 		this.tipologiaEsame = tipologiaEsame;
-		return "/viewTipologia.xhtml";
+		return "/portaleAmministrazione/viewTipologia.xhtml";
 	}
 	
 	public List<TipologiaEsame> getList(){

@@ -20,7 +20,7 @@ public class AmministrazioneFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		AmministrazioneManager loginBean = (AmministrazioneManager)((HttpServletRequest)request).getSession().getAttribute("adminManager");
+		AmministrazioneManager loginBean = (AmministrazioneManager)((HttpServletRequest)request).getSession().getAttribute("amministrazioneManager");
 
 		if (loginBean == null || !loginBean.isLogged()) {
 			String contextPath = ((HttpServletRequest)request).getContextPath();

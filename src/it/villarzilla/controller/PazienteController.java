@@ -27,7 +27,7 @@ public class PazienteController {
 	
 	public String createPaziente() {
 		this.paziente = pazienteFacade.createPaziente(nome, cognome, dataDiNascita);
-		return "/paziente.xhtml";
+		return "/portaleAmministrazione/paziente.xhtml";
 	}
 	
 	public List<Paziente> getList() {

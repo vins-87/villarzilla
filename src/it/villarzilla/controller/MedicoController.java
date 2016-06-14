@@ -26,7 +26,7 @@ public class MedicoController {
 	
 	public String createMedico(){
 		this.medico = medicoFacade.createMedico(nome, cognome, specializzazione);
-		return "/medico.xhtml";
+		return "/portaleAmministrazione/medico.xhtml";
 	}
 	
 	public List<Medico> getList(){

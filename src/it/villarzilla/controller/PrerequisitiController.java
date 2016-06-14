@@ -25,7 +25,7 @@ public class PrerequisitiController {
 	
 	public String createPrerequisiti(){
 		this.prerequisiti = prerequisitiFacade.createPrerequisiti(nome, descrizione);
-		return "/prerequisiti.xhtml";
+		return "/portaleAmministrazione/prerequisiti.xhtml";
 	}
 	
 	public List<Prerequisiti> getList(){
