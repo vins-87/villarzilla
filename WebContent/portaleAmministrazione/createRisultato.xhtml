@@ -8,7 +8,6 @@
 </h:head>
 <h:body>
 <h:form id="formRegistra">
-	<p>Inserisci valore:<h:inputText value="#{risultatoController.valore}" required="true" binding="#{valore}" id="valore"></h:inputText></p>
 	<p><h:inputHidden value="#{risultatoController.esame}"/></p>
 	<p>Indicatore:<h:selectOneMenu value="#{risultatoController.indicatore}"
 								id="indicatore" required="true" binding="#{indicatore}">
@@ -17,6 +16,7 @@
 									itemLabel="#{indicatore.nome}" itemValue="#{indicatore}" />
 							</h:selectOneMenu>
 	</p>
+	<p>Inserisci valore:<h:inputText value="#{risultatoController.valore}" required="true" binding="#{valore}" id="valore"></h:inputText></p>
 	<p>
 		<h:commandButton value="Inserisci" action="#{risultatoController.createRisultato}"/>
 	</p>

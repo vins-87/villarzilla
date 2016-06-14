@@ -12,21 +12,21 @@
 	<thead>
 	<th colspan="5">RISULTATI</th>
 		<tr>
-    		<th>VALORE</th>
-   	 		<th>DATA ESAME</th>
-   	 		<th>NOME PAZIENTE</th>
    	 		<th>COGNOME PAZIENTE</th>
+   	 		<th>NOME PAZIENTE</th>
+   	 		<th>DATA ESAME</th>
    	 		<th>INDICATORE</th>
+    		<th>VALORE</th>
   			</tr>
   	</thead>
   	<tbody>
 		<c:forEach var="c" items="#{risultatoController.getList()}">
 			<tr>
-    			<td>#{c.valore}</td>
+    			<td>#{c.esame.paziente.cognome}</td>
     			<td>#{c.esame.dataEsame}</td>
     			<td>#{c.esame.paziente.nome}</td>
-    			<td>#{c.esame.paziente.cognome}</td>
     			<td>#{c.indicatore.nome}</td>
+    			<td>#{c.valore}</td>
   			</tr>
 		</c:forEach>
   	</tbody>

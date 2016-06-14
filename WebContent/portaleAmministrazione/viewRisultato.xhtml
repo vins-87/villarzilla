@@ -12,15 +12,15 @@ ${risultatoController.esame.paziente.nome} ${risultatoController.esame.dataEsame
 	<thead>
 	<th colspan="2">RISULTATO</th>
 		<tr>
-    		<th>VALORE</th>
    	 		<th>INDICATORE</th>
+    		<th>VALORE</th>
   		</tr>
   	</thead>
   	<tbody>
 		<c:forEach var="c" items="#{risultatoController.getRisultati(risultatoController.esame)}">
 			<tr>
-    			<td>#{c.valore}</td>
     			<td>#{c.indicatore.nome}</td>
+    			<td>#{c.valore}</td>
   			</tr>
 		</c:forEach>
   	</tbody>
