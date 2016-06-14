@@ -8,8 +8,8 @@
 </h:head>
 <h:body>
 <h:form id="formRegistra">
-	<p>Data prenotazione:<h:inputText value="#{esameController.prenotazione}" required="true" binding="#{prenotazione}" id="prenotazione"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText></p>
-	<p><h:message for="prenotazione" style="color:red" /></p>
+<!-- 	<p>Data prenotazione:<h:inputText value="#{esameController.prenotazione}" required="true" binding="#{prenotazione}" id="prenotazione"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText></p> -->
+<!-- 	<p><h:message for="prenotazione" style="color:red" /></p> -->
 	<p>Data esame:<h:inputText value="#{esameController.dataEsame}" required="true" binding="#{dataEsame}" id="dataEsame"><f:convertDateTime pattern="d-M-yyyy" /></h:inputText></p>
 	<p><h:message for="dataEsame" style="color:red" /></p>
 	<p>Tipologia:<h:selectOneMenu value="#{esameController.tipologiaEsame}"

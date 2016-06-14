@@ -29,9 +29,9 @@ public class EsameFacade {
 		
 	}
 	
-	public Esame createEsame(Date prenotazione, Date dataEsame, Paziente paziente, Medico medico, TipologiaEsame tipologiaEsame){
+	public Esame createEsame(Date dataEsame, Paziente paziente, Medico medico, TipologiaEsame tipologiaEsame){
 		Esame e=new Esame();
-		e.setPrenotazione(prenotazione);
+		e.setPrenotazione(new Date());
 		e.setDataEsame(dataEsame);
 		e.setPaziente(paziente);
 		e.setMedico(medico);
