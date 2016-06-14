@@ -20,7 +20,7 @@
 							</h:selectOneMenu>
 	</p>
 	<p>Paziente:<h:selectOneMenu value="#{esameController.paziente}"
-								id="medico" required="true" binding="#{paziente}">
+								id="paziente" required="true" binding="#{paziente}">
 								<f:selectItem itemLabel="Seleziona un paziente" selected="true" />
 								<f:selectItems value="#{pazienteController.getList()}" var="paziente"
 									itemLabel="#{paziente.nome}" itemValue="#{paziente}" />
