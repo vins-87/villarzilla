@@ -10,11 +10,12 @@
 
 <table border="1">
 	<thead>
-	<th colspan="3">MEDICI</th>
+	<th colspan="4">MEDICI</th>
 		<tr>
     		<th>NOME</th>
    	 		<th>COGNOME</th>
     		<th>SPECIALIZZAZIONE</th>
+    		<th>ESAMI</th>
   			</tr>
   	</thead>
   	<tbody>
@@ -23,6 +24,9 @@
     			<td>#{c.nome}</td>
     			<td>#{c.cognome}</td>
     			<td>#{c.specializzazione}</td>
+    			<td><h:form><h:commandLink action="#{esameController.viewEsame(c)}">
+							<h:graphicImage title="#{c.cognome}" value="/img/note.png" width="10"/>
+						</h:commandLink></h:form></td>
   			</tr>
 		</c:forEach>
   	</tbody>

@@ -40,8 +40,17 @@ public class EsameController {
 		return "/portaleAmministrazione/esame.xhtml";
 	}
 	
+	public String viewEsame(Medico medico){
+		this.medico=medico;
+		return "/portaleAmministrazione/viewEsame.xhtml";
+	}
+	
 	public List<Esame> getList(){
 		return esameFacade.getAllEsame();
+	}
+	
+	public List<Esame> getEsami(Medico medico){
+		return this.esameFacade.getEsami(medico);
 	}
 
 	public Date getPrenotazione() {

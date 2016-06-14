@@ -26,14 +26,14 @@
 			<tr>
     			<td>#{c.prenotazione}</td>
     			<td>#{c.dataEsame}</td>
-    			<td>#{c.paziente.nome}</td>
-    			<td>#{c.medico.nome}</td>
+    			<td>#{c.paziente.cognome}</td>
+    			<td>#{c.medico.cognome}</td>
     			<td>#{c.tipologiaEsame.nome}</td>
     			<td><h:form><h:commandLink action="#{risultatoController.createRisultato(c)}">
-							<h:graphicImage title="#{c.paziente.nome}" value="/img/plus.png" width="10"/>
+							<h:graphicImage title="#{c.paziente.cognome}" value="/img/plus.png" width="10"/>
 						</h:commandLink></h:form></td>
     			<td><h:form><h:commandLink action="#{risultatoController.viewRisultato(c)}">
-							<h:graphicImage title="#{c.paziente.nome}" value="/img/note.png" width="10"/>
+							<h:graphicImage title="#{c.paziente.cognome}" value="/img/note.png" width="10"/>
 						</h:commandLink></h:form></td>
   			</tr>
 		</c:forEach>
