@@ -45,12 +45,21 @@ public class EsameController {
 		return "/portaleAmministrazione/viewEsame.xhtml";
 	}
 	
+	public String viewEsami(Long id){
+		this.esame=esameFacade.getEsame(id);
+		return "/portaleAmministrazione/viewEsami.xhtml";
+	}
+	
 	public List<Esame> getList(){
 		return esameFacade.getAllEsame();
 	}
 	
 	public List<Esame> getEsami(Medico medico){
 		return this.esameFacade.getEsami(medico);
+	}
+	
+	public Esame getEsame(Long id){
+		return this.esameFacade.getEsame(id);
 	}
 
 	public Date getPrenotazione() {

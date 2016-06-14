@@ -7,10 +7,11 @@
 	<title>Esami</title>
 </h:head>
 <h:body>
-
+<p>ESAME CON CODICE</p>
+${esameController.esame.id}
 <table border="1">
 	<thead>
-	<th colspan="7">ESAMI</th>
+	<th colspan="7">ESAME</th>
 		<tr>
     		<th>DATA PRENOTAZIONE</th>
    	 		<th>DATA ESAME</th>
@@ -22,7 +23,7 @@
   			</tr>
   	</thead>
   	<tbody>
-		<c:forEach var="c" items="#{esameController.getList()}">
+		<c:forEach var="c" items="#{esameController.getEsami(esameController.esame)}">
 			<tr>
     			<td>#{c.prenotazione}</td>
     			<td>#{c.dataEsame}</td>
