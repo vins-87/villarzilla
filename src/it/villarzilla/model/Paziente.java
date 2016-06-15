@@ -21,13 +21,20 @@ import javax.persistence.TemporalType;
 @Table(name="pazienti")
 @NamedQueries({
 	@NamedQuery(name = "Paziente.findAll", query = "SELECT p FROM Paziente p"),
-	@NamedQuery(name="Paziente.findById", query="SELECT p FROM Paziente p WHERE p.id = :id")
+	@NamedQuery(name = "Paziente.findByUsername", query = "SELECT p FROM Paziente p WHERE p.username = :username"),
+	@NamedQuery(name = "Paziente.findById", query="SELECT p FROM Paziente p WHERE p.id = :id")
 })
 public class Paziente {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@Column(nullable=false, unique=true)
+	private String username;
+	
+	@Column(nullable=false)
+	private String password;
 	
 	@Column(nullable=false, length=50)
 	private String nome;
@@ -66,6 +73,21 @@ public class Paziente {
 		this.id = id;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getNome() {
 		return nome;

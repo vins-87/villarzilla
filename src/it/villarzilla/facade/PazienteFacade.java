@@ -26,8 +26,10 @@ public class PazienteFacade {
 		
 	}
 	
-	public Paziente createPaziente(String nome, String cognome, Date dataDiNascita){
+	public Paziente createPaziente(String username, String password, String nome, String cognome, Date dataDiNascita){
 		Paziente p= new Paziente();
+		p.setUsername(username);
+		p.setPassword(password);
 		p.setNome(nome);
 		p.setCognome(cognome);
 		p.setDataDiNascita(dataDiNascita);
@@ -42,6 +44,14 @@ public class PazienteFacade {
 	public Paziente getPaziente(Long id) {
 		try {
 			return this.em.createNamedQuery("Paziente.findById", Paziente.class).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	
+	public Paziente getPaziente(String username) {
+		try {
+			return this.em.createNamedQuery("Paziente.findByUsername", Paziente.class).setParameter("username", username).getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		}
