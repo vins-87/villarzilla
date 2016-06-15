@@ -23,21 +23,19 @@ ${esameController.esame.id}
   			</tr>
   	</thead>
   	<tbody>
-		<c:forEach var="c" items="#{esameController.getList()}">
 			<tr>
-    			<td>#{c.prenotazione}</td>
-    			<td>#{c.dataEsame}</td>
-    			<td>#{c.paziente.cognome}</td>
-    			<td>#{c.medico.cognome}</td>
-    			<td>#{c.tipologiaEsame.nome}</td>
-    			<td><h:form><h:commandLink action="#{risultatoController.createRisultato(c)}">
+    			<td>#{esameController.esame.prenotazione}</td>
+    			<td>#{esameController.esame.dataEsame}</td>
+    			<td>#{esameController.esame.tipologiaEsame.nome}</td>
+    			<td>#{esameController.esame.paziente.cognome}</td>
+    			<td>#{esameController.esame.medico.cognome}</td>
+    			<td><h:form><h:commandLink action="#{risultatoController.createRisultato(esameController.esame)}">
 							<h:graphicImage title="#{c.paziente.cognome}" value="/img/plus.png" width="10"/>
 						</h:commandLink></h:form></td>
-    			<td><h:form><h:commandLink action="#{risultatoController.viewRisultato(c)}">
+    			<td><h:form><h:commandLink action="#{risultatoController.viewRisultato(esameController.esame)}">
 							<h:graphicImage title="#{c.paziente.cognome}" value="/img/note.png" width="10"/>
 						</h:commandLink></h:form></td>
   			</tr>
-		</c:forEach>
   	</tbody>
 </table>
 </h:body>
