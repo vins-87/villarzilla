@@ -11,40 +11,12 @@
 <table border="1">
 	<TBODY>
 		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createMedico.xhtml">CREA MEDICO</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewMedici.xhtml">LISTA MEDICI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createPaziente.xhtml">CREA PAZIENTE</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewPazienti.xhtml">LISTA PAZIENTI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createTipologia.xhtml">CREA TIPOLOGIA ESAME</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewTipologie.xhtml">LISTA TIPOLOGIE ESAMI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createIndicatore.xhtml">CREA INDICATORE</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewIndicatori.xhtml">LISTA INDICATORI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createPrerequisiti.xhtml">CREA PREREQUISITO</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewPrerequisiti.xhtml">LISTA PREREQUISITI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createEsame.xhtml">CREA ESAME</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewEsami.xhtml">LISTA ESAMI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createRisultato.xhtml">CREA RISULTATO</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewRisultati.xhtml">LISTA RISULTATI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD colspan="2"><h:outputLink value="/Villarzilla/portaleAmministrazione/cercaEsame.xhtml">CERCA ESAME</h:outputLink></TD>
+			<TD><h:outputLink value="/Villarzilla/portalePaziente/viewEsami.xhtml">LISTA ESAMI</h:outputLink></TD>
 		</TR>
 	</TBODY>
 </table>
 	<h:form>
-    	<h:commandLink action="#{amministrazioneManager.logout()}"> Logout </h:commandLink>
+    	<h:commandLink action="#{pazienteManager.logout()}"> Logout </h:commandLink>
 	</h:form>
 </h:body>
 </html>

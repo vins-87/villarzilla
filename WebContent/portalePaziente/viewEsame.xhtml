@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>Esame</title>
+</h:head>
+<h:body>
+<p>DETTAGLI ESAME</p>
+${esameController.tipologiaEsame.nome}
+<p>DEL PAZIENTE</p>
+${pazienteManager.current.nome}
+<table border="1">
+	<thead>
+	<th colspan="4">ESAMI</th>
+		<tr>
+   	 		<th>DATA PRENOTAZIONE</th>
+   	 		<th>DATA ESAME</th>
+    		<th>TIPOLOGIA</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+			<tr>
+    			<td>#{esameController.esame.prenotazione}</td>
+    			<td>#{esameController.esame.dataEsame}</td>
+    			<td>#{esameController.esame.tipologiaEsame.nome}</td>
+  			</tr>
+  	</tbody>
+</table>
+</h:body>
+</html>

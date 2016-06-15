@@ -45,6 +45,11 @@ public class EsameController {
 		return "/portaleAmministrazione/viewEsame.xhtml";
 	}
 	
+	public String viewEsami(Esame esame){
+		this.esame=esame;
+		return "/portalePaziente/viewEsame.xhtml";
+	}
+	
 	public String viewEsami(Long id){
 		this.esame=esameFacade.getEsame(id);
 		return "/portaleAmministrazione/viewEsami.xhtml";
@@ -56,6 +61,10 @@ public class EsameController {
 	
 	public List<Esame> getEsami(Medico medico){
 		return this.esameFacade.getEsami(medico);
+	}
+	
+	public List<Esame> getEsami(Paziente paziente){
+		return this.esameFacade.getEsami(paziente);
 	}
 	
 	public Esame getEsame(Long id){

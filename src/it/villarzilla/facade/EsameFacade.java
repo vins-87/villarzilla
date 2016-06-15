@@ -45,6 +45,11 @@ public class EsameFacade {
 		return medico.getEsami();
 	}
 	
+	public List<Esame> getEsami(Paziente paziente) {
+		paziente = this.em.merge(paziente);
+		return paziente.getEsami();
+	}
+	
 	public List<Esame> getAllEsame(){
 		return this.em.createNamedQuery("Esame.findAll", Esame.class).getResultList();
 	}

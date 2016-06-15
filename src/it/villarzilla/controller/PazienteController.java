@@ -34,7 +34,7 @@ public class PazienteController {
 	
 	public String createPaziente() {
 		this.paziente = pazienteFacade.createPaziente(username, password, nome, cognome, dataDiNascita);
-		return "/portaleAmministrazione/paziente.xhtml";
+		return "/portalePaziente/paziente.xhtml";
 	}
 	
 	public String accedi(){
@@ -47,7 +47,7 @@ public class PazienteController {
 				return "/loginPaziente.xhtml";
 			}
 		}
-		return "/loginAdmin.xhtml";
+		return "/loginPaziente.xhtml";
 	}
 	
 	public List<Paziente> getList() {

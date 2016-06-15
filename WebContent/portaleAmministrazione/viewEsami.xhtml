@@ -23,7 +23,7 @@ ${esameController.esame.id}
   			</tr>
   	</thead>
   	<tbody>
-		<c:forEach var="c" items="#{esameController.getEsami(esameController.esame)}">
+		<c:forEach var="c" items="#{esameController.getList()}">
 			<tr>
     			<td>#{c.prenotazione}</td>
     			<td>#{c.dataEsame}</td>
