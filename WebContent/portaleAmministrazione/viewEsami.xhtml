@@ -5,10 +5,17 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<title>Esami</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
-<p>ESAME CON CODICE</p>
-${esameController.esame.id}
+	<a href="/Villarzilla/portaleAmministrazione/portaleAmministratore.xhtml"><img src="/Villarzilla/img/home.png" width="15" /></a>
+<p>ESAMI</p>
 <table border="1">
 	<thead>
 	<th colspan="7">ESAME</th>
@@ -23,19 +30,21 @@ ${esameController.esame.id}
   			</tr>
   	</thead>
   	<tbody>
+  		<c:forEach var="c" items="#{esameController.getList()}">
 			<tr>
-    			<td>#{esameController.esame.prenotazione}</td>
-    			<td>#{esameController.esame.dataEsame}</td>
-    			<td>#{esameController.esame.tipologiaEsame.nome}</td>
-    			<td>#{esameController.esame.paziente.cognome}</td>
-    			<td>#{esameController.esame.medico.cognome}</td>
-    			<td><h:form><h:commandLink action="#{risultatoController.createRisultato(esameController.esame)}">
+    			<td>#{c.prenotazione}</td>
+    			<td>#{c.dataEsame}</td>
+    			<td>#{c.tipologiaEsame.nome}</td>
+    			<td>#{c.paziente.cognome}</td>
+    			<td>#{c.medico.cognome}</td>
+    			<td><h:form><h:commandLink action="#{risultatoController.createRisultato(c)}">
 							<h:graphicImage title="#{c.paziente.cognome}" value="/img/plus.png" width="10"/>
 						</h:commandLink></h:form></td>
-    			<td><h:form><h:commandLink action="#{risultatoController.viewRisultato(esameController.esame)}">
+    			<td><h:form><h:commandLink action="#{risultatoController.viewRisultato(c)}">
 							<h:graphicImage title="#{c.paziente.cognome}" value="/img/note.png" width="10"/>
 						</h:commandLink></h:form></td>
   			</tr>
+		</c:forEach>
   	</tbody>
 </table>
 </h:body>

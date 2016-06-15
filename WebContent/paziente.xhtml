@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-	<title>Risultato</title>
+	<title>Paziente</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
 	<link rel="stylesheet"
 		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
@@ -11,12 +11,11 @@
 		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
-	<a href="/Villarzilla/portaleAmministrazione/portaleAmministratore.xhtml"><img src="/Villarzilla/img/home.png" width="15" /></a>
+	<a href="index.xhtml"><img src="/Villarzilla/img/home.png" width="15" /></a>
 	<div class="container">
-		<h3>Creato risultato : ${risultatoController.risultato.valore}</h3>
-		<h3>del paziente : ${risultatoController.esame.paziente.nome} ${risultatoController.esame.paziente.cognome}</h3>
-		<h3>tenuto il : ${risultatoController.esame.dataEsame}</h3>
-		<h3>e con l'indicatore : ${risultatoController.indicatore.nome}</h3>
+		<h3>Inserito Correttamente il paziente : ${pazienteController.paziente.nome}</h3>
+		<h3>Cognome: ${pazienteController.paziente.cognome}</h3>
+		<h3>con username: ${pazienteController.paziente.username}</h3>
 	</div>
 
 </h:body>

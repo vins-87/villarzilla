@@ -2,9 +2,16 @@
 <html xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
 	<title>TipologiaEsame</title>
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
+	<a href="/Villarzilla/portaleAmministrazione/portaleAmministratore.xhtml"><img src="/Villarzilla/img/home.png" width="15" /></a>
 	<div class="container">
 		<h3>Inserito Correttamente la tipologia : ${tipologiaEsameController.tipologiaEsame.nome}</h3>
 		<h3>Codice: ${tipologiaEsameController.tipologiaEsame.codice}</h3>

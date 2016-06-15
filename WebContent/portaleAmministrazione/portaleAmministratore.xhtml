@@ -5,9 +5,17 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<title>PortaleAmministrazione</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<p>Benvenuto #{amministrazioneManager.current.nome}</p>
 </h:head>
 <h:body>
+	<a href="/Villarzilla/portaleAmministrazione/portaleAmministratore.xhtml"><img src="/Villarzilla/img/home.png" width="15" /></a>
 <table border="1">
 	<TBODY>
 		<TR>
@@ -32,10 +40,6 @@
 		<TR>
 			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createEsame.xhtml">CREA ESAME</h:outputLink></TD>
 			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewEsami.xhtml">LISTA ESAMI</h:outputLink></TD>
-		</TR>
-		<TR>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/createRisultato.xhtml">CREA RISULTATO</h:outputLink></TD>
-			<TD><h:outputLink value="/Villarzilla/portaleAmministrazione/viewRisultati.xhtml">LISTA RISULTATI</h:outputLink></TD>
 		</TR>
 		<TR>
 			<TD colspan="2"><h:outputLink value="/Villarzilla/portaleAmministrazione/cercaEsame.xhtml">CERCA ESAME</h:outputLink></TD>

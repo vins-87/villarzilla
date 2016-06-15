@@ -5,30 +5,52 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<title>Index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
-<p><h:outputLink value="/Villarzilla/portaleAmministrazione/portaleAmministratore.xhtml">PORTALE AMMINISTRAZIONE</h:outputLink></p>
-<p><h:outputLink value="/Villarzilla/portalePaziente/portalePaziente.xhtml">PORTALE PAZIENTE</h:outputLink></p>
-<p><h:outputLink value="createAmministratore.xhtml">CREA AMMINISTRATORE</h:outputLink></p>
-<p><h:outputLink value="createPaziente.xhtml">CREA PAZIENTE</h:outputLink></p>
-<table border="1">
-<thead>
-	<th colspan="2">ELENCO TIPOLOGIE DI ESAME</th>
-		<tr>
-    		<th>TIPOLOGIA</th>
-    		<th>DETTAGLI</th>
-  		</tr>
-  	</thead>
+	<a href="index.xhtml"><img src="/Villarzilla/img/home.png" width="15" /></a>
+	<table border="1">
 	<TBODY>
-		<c:forEach var="c" items="#{tipologiaEsameController.getList()}">
-			<tr>
-    			<td>#{c.nome}</td>
-    			<td><h:form><h:commandLink action="#{tipologiaEsameController.viewTipologiaEsame(c)}">
-							<h:graphicImage title="#{c.nome}" value="/img/note.png" width="10"/>
-						</h:commandLink></h:form></td>
-  			</tr>
-		</c:forEach>
+		<tr>
+			<td><h:outputLink value="/Villarzilla/portaleAmministrazione/portaleAmministratore.xhtml">PORTALE AMMINISTRAZIONE</h:outputLink></td>
+			<td><h:outputLink value="/Villarzilla/portalePaziente/portalePaziente.xhtml">PORTALE PAZIENTE</h:outputLink></td>
+		</tr>
+			<td><h:outputLink value="createAmministratore.xhtml">CREA AMMINISTRATORE</h:outputLink></td>
+			<td><h:outputLink value="createPaziente.xhtml">CREA PAZIENTE</h:outputLink></td>
+		<tr>
+		
+		</tr>
 	</TBODY>
-</table>
+	</table>
+	
+	<table border="1">
+		<thead>
+			<th colspan="2">ELENCO TIPOLOGIE DI ESAME</th>
+			<tr>
+				<th>TIPOLOGIA</th>
+				<th>DETTAGLI</th>
+			</tr>
+		</thead>
+		<TBODY>
+			<c:forEach var="c" items="#{tipologiaEsameController.getList()}">
+				<tr>
+					<td>#{c.nome}</td>
+					<td><h:form>
+							<h:commandLink
+								action="#{tipologiaEsameController.viewTipologiaEsame(c)}">
+								<h:graphicImage title="#{c.nome}" value="/img/note.png"
+									width="10" />
+							</h:commandLink>
+						</h:form></td>
+				</tr>
+			</c:forEach>
+		</TBODY>
+	</table>
 </h:body>
 </html>

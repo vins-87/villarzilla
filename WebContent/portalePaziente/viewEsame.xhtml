@@ -5,10 +5,18 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<title>Esame</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
+	<a href="/Villarzilla/portalePaziente/portalePaziente.xhtml"><img src="/Villarzilla/img/home.png" width="15" /></a>
 <p>DETTAGLI ESAME</p>
-${esameController.tipologiaEsame.nome}
+${esameController.esame.tipologiaEsame.nome}
 <p>DEL PAZIENTE</p>
 ${pazienteManager.current.nome}
 <table border="1">
@@ -18,6 +26,7 @@ ${pazienteManager.current.nome}
    	 		<th>DATA PRENOTAZIONE</th>
    	 		<th>DATA ESAME</th>
     		<th>TIPOLOGIA</th>
+    		<th>MEDICO</th>
   		</tr>
   	</thead>
   	<tbody>
@@ -25,6 +34,7 @@ ${pazienteManager.current.nome}
     			<td>#{esameController.esame.prenotazione}</td>
     			<td>#{esameController.esame.dataEsame}</td>
     			<td>#{esameController.esame.tipologiaEsame.nome}</td>
+    			<td>#{esameController.esame.medico.cognome}</td>
   			</tr>
   	</tbody>
 </table>
