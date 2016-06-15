@@ -1,0 +1,484 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.8
+-- Dumped by pg_dump version 9.4.8
+-- Started on 2016-06-15 17:25:51 CEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1 (class 3079 OID 11863)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2077 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 173 (class 1259 OID 16455)
+-- Name: amministratori; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE amministratori (
+    id bigint NOT NULL,
+    nome character varying(255) NOT NULL,
+    password character varying(255) NOT NULL
+);
+
+
+ALTER TABLE amministratori OWNER TO postgres;
+
+--
+-- TOC entry 174 (class 1259 OID 16465)
+-- Name: esami; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE esami (
+    id bigint NOT NULL,
+    dataesame date NOT NULL,
+    prenotazione date NOT NULL,
+    paziente_id bigint,
+    medico_id bigint,
+    tipologiaesame_id bigint
+);
+
+
+ALTER TABLE esami OWNER TO postgres;
+
+--
+-- TOC entry 175 (class 1259 OID 16470)
+-- Name: indicatori; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE indicatori (
+    id bigint NOT NULL,
+    nome character varying(50) NOT NULL,
+    tipologiaesame_id bigint
+);
+
+
+ALTER TABLE indicatori OWNER TO postgres;
+
+--
+-- TOC entry 176 (class 1259 OID 16475)
+-- Name: medici; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE medici (
+    id bigint NOT NULL,
+    cognome character varying(50) NOT NULL,
+    nome character varying(50) NOT NULL,
+    specializzazione character varying(200)
+);
+
+
+ALTER TABLE medici OWNER TO postgres;
+
+--
+-- TOC entry 177 (class 1259 OID 16480)
+-- Name: openjpa_sequence_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE openjpa_sequence_table (
+    id smallint NOT NULL,
+    sequence_value bigint
+);
+
+
+ALTER TABLE openjpa_sequence_table OWNER TO postgres;
+
+--
+-- TOC entry 178 (class 1259 OID 16485)
+-- Name: pazienti; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE pazienti (
+    id bigint NOT NULL,
+    cognome character varying(50) NOT NULL,
+    datadinascita date NOT NULL,
+    nome character varying(50) NOT NULL,
+    password character varying(255),
+    username character varying(255)
+);
+
+
+ALTER TABLE pazienti OWNER TO postgres;
+
+--
+-- TOC entry 179 (class 1259 OID 16490)
+-- Name: prerequisiti; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE prerequisiti (
+    id bigint NOT NULL,
+    descrizione character varying(200),
+    nome character varying(50) NOT NULL
+);
+
+
+ALTER TABLE prerequisiti OWNER TO postgres;
+
+--
+-- TOC entry 180 (class 1259 OID 16495)
+-- Name: risultati; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE risultati (
+    id bigint NOT NULL,
+    valore character varying(50) NOT NULL,
+    esame_id bigint,
+    indicatore_id bigint
+);
+
+
+ALTER TABLE risultati OWNER TO postgres;
+
+--
+-- TOC entry 181 (class 1259 OID 16500)
+-- Name: tipologie_esami; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tipologie_esami (
+    id bigint NOT NULL,
+    codice character varying(50) NOT NULL,
+    costo double precision NOT NULL,
+    descrizione character varying(200),
+    nome character varying(50) NOT NULL
+);
+
+
+ALTER TABLE tipologie_esami OWNER TO postgres;
+
+--
+-- TOC entry 182 (class 1259 OID 16505)
+-- Name: tipologie_esami_prerequisiti; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tipologie_esami_prerequisiti (
+    tipologiaesame_id bigint,
+    prerequisiti_id bigint
+);
+
+
+ALTER TABLE tipologie_esami_prerequisiti OWNER TO postgres;
+
+--
+-- TOC entry 2060 (class 0 OID 16455)
+-- Dependencies: 173
+-- Data for Name: amministratori; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY amministratori (id, nome, password) FROM stdin;
+1	vins87	ciccio
+51	icci87	ciao
+\.
+
+
+--
+-- TOC entry 2061 (class 0 OID 16465)
+-- Dependencies: 174
+-- Data for Name: esami; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY esami (id, dataesame, prenotazione, paziente_id, medico_id, tipologiaesame_id) FROM stdin;
+451	2016-07-25	2016-06-14	\N	251	301
+551	2016-07-25	2016-06-14	101	251	301
+651	2016-06-25	2016-06-14	101	251	301
+652	2016-07-13	2016-06-14	701	751	301
+1001	2016-08-18	2016-06-15	951	751	301
+\.
+
+
+--
+-- TOC entry 2062 (class 0 OID 16470)
+-- Dependencies: 175
+-- Data for Name: indicatori; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY indicatori (id, nome, tipologiaesame_id) FROM stdin;
+351	THC	301
+851	sangue	301
+852	ferro	301
+\.
+
+
+--
+-- TOC entry 2063 (class 0 OID 16475)
+-- Dependencies: 176
+-- Data for Name: medici; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY medici (id, cognome, nome, specializzazione) FROM stdin;
+251	PICCERILLO	ALFREDO	DERMATOLOGIA
+751	VARANO	VINCENZO	GINECOLOGIA
+\.
+
+
+--
+-- TOC entry 2064 (class 0 OID 16480)
+-- Dependencies: 177
+-- Data for Name: openjpa_sequence_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY openjpa_sequence_table (id, sequence_value) FROM stdin;
+0	1101
+\.
+
+
+--
+-- TOC entry 2065 (class 0 OID 16485)
+-- Dependencies: 178
+-- Data for Name: pazienti; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY pazienti (id, cognome, datadinascita, nome, password, username) FROM stdin;
+101	BARBADORO	1988-02-03	ANDREA	\N	\N
+151	BARBADORO	1988-02-03	ANDREA	\N	\N
+201	BARBADORO	1988-02-03	ANDREA	\N	\N
+701	PANIERI	1987-06-11	NEW	\N	\N
+901	DORSO	1990-08-03	ALFREDO	wlazio	alfredo
+951	PICCERILLO	1962-10-05	PALMA	bassetta	palma
+\.
+
+
+--
+-- TOC entry 2066 (class 0 OID 16490)
+-- Dependencies: 179
+-- Data for Name: prerequisiti; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY prerequisiti (id, descrizione, nome) FROM stdin;
+401	Orario in cui deve essere effettuato l'esame	ORARIO
+\.
+
+
+--
+-- TOC entry 2067 (class 0 OID 16495)
+-- Dependencies: 180
+-- Data for Name: risultati; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY risultati (id, valore, esame_id, indicatore_id) FROM stdin;
+501	54	451	351
+601	60	551	351
+801	68	652	351
+802	48	652	851
+1051	43	1001	852
+\.
+
+
+--
+-- TOC entry 2068 (class 0 OID 16500)
+-- Dependencies: 181
+-- Data for Name: tipologie_esami; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tipologie_esami (id, codice, costo, descrizione, nome) FROM stdin;
+301	URN	20	URINARE NEL VASETTO	URINE
+\.
+
+
+--
+-- TOC entry 2069 (class 0 OID 16505)
+-- Dependencies: 182
+-- Data for Name: tipologie_esami_prerequisiti; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tipologie_esami_prerequisiti (tipologiaesame_id, prerequisiti_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1924 (class 2606 OID 16462)
+-- Name: amministratori_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY amministratori
+    ADD CONSTRAINT amministratori_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1928 (class 2606 OID 16469)
+-- Name: esami_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY esami
+    ADD CONSTRAINT esami_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1934 (class 2606 OID 16474)
+-- Name: indicatori_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY indicatori
+    ADD CONSTRAINT indicatori_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1936 (class 2606 OID 16479)
+-- Name: medici_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY medici
+    ADD CONSTRAINT medici_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1938 (class 2606 OID 16484)
+-- Name: openjpa_sequence_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY openjpa_sequence_table
+    ADD CONSTRAINT openjpa_sequence_table_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1940 (class 2606 OID 16489)
+-- Name: pazienti_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY pazienti
+    ADD CONSTRAINT pazienti_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1942 (class 2606 OID 16494)
+-- Name: prerequisiti_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY prerequisiti
+    ADD CONSTRAINT prerequisiti_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1946 (class 2606 OID 16499)
+-- Name: risultati_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY risultati
+    ADD CONSTRAINT risultati_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1948 (class 2606 OID 16504)
+-- Name: tipologie_esami_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tipologie_esami
+    ADD CONSTRAINT tipologie_esami_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1926 (class 2606 OID 16464)
+-- Name: u_mmnsrtr_nome; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY amministratori
+    ADD CONSTRAINT u_mmnsrtr_nome UNIQUE (nome);
+
+
+--
+-- TOC entry 1929 (class 1259 OID 16508)
+-- Name: i_esami_medico; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_esami_medico ON esami USING btree (medico_id);
+
+
+--
+-- TOC entry 1930 (class 1259 OID 16509)
+-- Name: i_esami_paziente; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_esami_paziente ON esami USING btree (paziente_id);
+
+
+--
+-- TOC entry 1931 (class 1259 OID 16510)
+-- Name: i_esami_tipologiaesame; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_esami_tipologiaesame ON esami USING btree (tipologiaesame_id);
+
+
+--
+-- TOC entry 1932 (class 1259 OID 16511)
+-- Name: i_ndctori_tipologiaesame; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_ndctori_tipologiaesame ON indicatori USING btree (tipologiaesame_id);
+
+
+--
+-- TOC entry 1943 (class 1259 OID 16512)
+-- Name: i_rsultti_esame; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_rsultti_esame ON risultati USING btree (esame_id);
+
+
+--
+-- TOC entry 1944 (class 1259 OID 16513)
+-- Name: i_rsultti_indicatore; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_rsultti_indicatore ON risultati USING btree (indicatore_id);
+
+
+--
+-- TOC entry 1949 (class 1259 OID 16514)
+-- Name: i_tplgqst_element; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_tplgqst_element ON tipologie_esami_prerequisiti USING btree (prerequisiti_id);
+
+
+--
+-- TOC entry 1950 (class 1259 OID 16515)
+-- Name: i_tplgqst_tipologiaesame_id; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_tplgqst_tipologiaesame_id ON tipologie_esami_prerequisiti USING btree (tipologiaesame_id);
+
+
+--
+-- TOC entry 2076 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2016-06-15 17:25:51 CEST
+
+--
+-- PostgreSQL database dump complete
+--
+
